@@ -24,7 +24,7 @@ class Movie(models.Model):
             release = self.release,
 
         )
-        obj.save(index= "movie-index" ) 
+        obj.save(index= "movie-index" )
         # not using str(self.id)
 
         return obj.to_dict(include_meta=True)
@@ -32,9 +32,9 @@ class Movie(models.Model):
     class Meta:
         ordering = ("name",)
 
-@receiver(post_save, sender = Movie)
-def index_post(sender, instance, **kwargs):
-    instance.indexing()
+# @receiver(post_save, sender = Movie)
+# def index_post(sender, instance, **kwargs):
+#     instance.indexing()
 
 
 class Actor(models.Model):
